@@ -2,39 +2,19 @@ import { useEffect, useState } from "react";
 import "./home.css";
 import OtherInputs from "../../comps/inputComps/OtherInputs";
 import SelectFrom from "../../comps/inputComps/selects/SelectFrom";
-import {Alert} from "@mui/material"
-
-const defaultForm  =  {
-  subUnit: "",
-  description: "",
-  activeType: "",
-  category:  "",
-  unitActivityType:  "",
-  weather:  "",
-  location: "",
-  eventSeverity: "",
-  results:  "",
-  injuriesLevel: "",
-  initialRecommendations:"",
-   date:  "",
-}
-
-export type FormType = typeof defaultForm;
+import type { Field } from "../../types";
+import { defaultForm } from "../../types";
 
 export default function Home() {
-  const [history, setHistory] = useState< FormType []>(() => {
+  const [history, setHistory] = useState<Field[]>(() => {
     const saved = localStorage.getItem("formHistory");
-    return saved ? (JSON.parse(saved) as FormType[]) : [];
+    return saved ? (JSON.parse(saved) as Field[]) : [];
   });
 
-  const [data, setData] = useState<FormType>(defaultForm );
+  const [data, setData] = useState<Field>(defaultForm);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  const handleChange = (
-    e:
-      | React.ChangeEvent<HTMLSelectElement>
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<any>) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
   };
@@ -42,13 +22,17 @@ export default function Home() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     setHistory([...history, data]);
-    setData(defaultForm );
-    alert("טופס נשלח בהצלחה:)")
+    setData(defaultForm);
+
+    setToastMessage("✅ הטופס נשלח בהצלחה!");
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 3000);
   };
 
   useEffect(() => {
     localStorage.setItem("formHistory", JSON.stringify(history));
-  },[history]);
+  }, [history]);
 
   return (
     <div className="home">
@@ -65,7 +49,7 @@ export default function Home() {
           <button type="submit" className="submit-btn">
             שליחה
           </button>
-          
+          {toastMessage && <p className="toast-notification">{toastMessage}</p>}
         </div>
       </form>
     </div>

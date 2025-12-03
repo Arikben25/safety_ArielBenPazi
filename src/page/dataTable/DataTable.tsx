@@ -1,40 +1,29 @@
-import "./DataTable.modoole.css";
-import type { FormType } from "../home/Home";
+import "./module.css";
+import type { Field } from "../../types";
+import { tableHeaders } from "../../data/constants";
 
 export default function DataTable() {
-
   const saved = localStorage.getItem("formHistory");
-  const data = saved ? (JSON.parse(saved) as FormType[]) : [];
-
-  const titles = [
-    "יחידת משנה",
-    "תיאור מקרה",
-    "מאפיין פעילות הפרט",
-    "מאפיין תחומי",
-    "פעילות היחידה",
-    " מזג אוויר",
-    "מיקום",
-    "חומרת האירוע",
-    "תוצאות האירוע",
-    "חומרת הפציעה",
-    "המלצות ראשוניות",
-    "זמן האירוע",
-  ];
+  const data = saved ? (JSON.parse(saved) as Field[]) : [];
 
   const createTitles = () => {
-    return titles.map((v) => <th className="card__title">{v}</th>);
-    // return Object.keys(data[0]).map((key) => <th key={key}>{key}</th>);
+    return tableHeaders.map((val) => (
+      <th className="card__title" key={val.name}>
+        {val.title}
+      </th>
+    ));
   };
 
   const createRow = () => {
-    return data.map((row, k) => (
-      <tr key={k}>
-        {Object.values(row).map((value) => (
-          <td key={value}>{value}</td>
+    return data.map((row, rowIndex) => (
+      <tr key={rowIndex}>
+        {tableHeaders.map((col) => (
+          <td key={`${rowIndex}-${col.name}`}>{row[col.name] || "-"}</td>
         ))}
       </tr>
     ));
   };
+
   return (
     <div>
       <table className="dataTable">

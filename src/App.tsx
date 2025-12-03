@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Heder from "./comps/heder/Heder";
+import Header from "./comps/header/Header";
 import Footer from "./comps/footer/Footer";
 import Home from "./page/home/Home";
 import DataTable from "./page/dataTable/DataTable";
@@ -8,10 +8,10 @@ import DataTable from "./page/dataTable/DataTable";
 function App() {
   return (
     <>
-      <Heder />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/DataTable" element={<DataTable />} />
+        <Route path="/dataTable" element={<DataTable />} />
       </Routes>
       <Footer />
     </>

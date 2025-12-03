@@ -1,36 +1,29 @@
-interface Field {
-  value: {
-    activeType: string;
-    category: string;
-    unitActivityType: string;
-    weather: string;
-    location: string;
-    results: string;
-    eventSeverity: string;
-    injuriesLevel: string;
-    date: string;
-    subUnit: string;
-    description: string;
-    initialRecommendations: string;
-  };
-  handleChange: (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ) => void;
-}
+import { localTimeInput, maxDate, type InputsProps } from "../../types";
 
-export default function OtherInputs({ value, handleChange }: Field) {
+export default function OtherInputs({ handleChange, value }: InputsProps) {
+
   return (
     <div className="form-field">
       <label htmlFor="date">תאריך:</label>
       <input
-        type="datetime-local"
+        type="date"
         name="date"
         id="date"
-        max={new Date().toISOString().slice(0, 16)}
+        required
+        max={maxDate}
+        value={value.date }
         onChange={handleChange}
-        value={value.date}
+      />
+
+      <label htmlFor="time">שעה :</label>
+      <input
+        id="time"
+        type="time"
+        name="eventTime"
+        required
+        max={value.date == maxDate ? localTimeInput : "23:59"}
+        value={value.eventTime}
+        onChange={handleChange}
       />
 
       <label htmlFor="name">יחידה:</label>
@@ -38,6 +31,7 @@ export default function OtherInputs({ value, handleChange }: Field) {
         type="text"
         id="name"
         name="subUnit"
+        required
         placeholder="מחלקת דיגיטל"
         onChange={handleChange}
         value={value.subUnit}
@@ -48,6 +42,7 @@ export default function OtherInputs({ value, handleChange }: Field) {
       <textarea
         id="description"
         name="description"
+        required
         maxLength={800}
         value={value.description}
         onChange={handleChange}
@@ -58,6 +53,7 @@ export default function OtherInputs({ value, handleChange }: Field) {
       <textarea
         id="initialRecommendations"
         name="initialRecommendations"
+        required
         maxLength={800}
         value={value.initialRecommendations}
         onChange={handleChange}

@@ -1,13 +1,13 @@
-import "./Heder.css";
+import "./Header.css";
 import { useNavigate } from "react-router-dom";
 import idfLogo from "../../assets/Untitled.png";
 import zyLogo from "../../assets/zy.png";
 import Card from "../navigationCard/navigationCard";
 
-export default function Heder() {
+export default function Header() {
   const navigate = useNavigate();
   const buttn = () => {
-    navigate("/DataTable");
+    navigate("/dataTable");
   };
 
   return (

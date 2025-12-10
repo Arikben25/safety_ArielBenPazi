@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./comps/header/Header";
 import Footer from "./comps/footer/Footer";
 import Home from "./page/home/Home";
-import DataTable from "./page/dataTable/DataTable";
+import TablePage from "./page/dataTable/TablePage";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dataTable" element={<DataTable />} />
+        <Route path="/dataTable" element={<TablePage />} />
       </Routes>
       <Footer />
     </>

@@ -9,9 +9,8 @@ const Card = () => {
   return (
     <div>
       <div className="navigation-card ">
-        <a href="#" className="tab">
+        <div className="tab" onClick={homeButtn}>
           <svg
-            onClick={homeButtn}
             className="svgIcon"
             viewBox="0 0 104 100"
             fill="none"
@@ -23,7 +22,7 @@ const Card = () => {
               strokeWidth={7}
             />
           </svg>
-        </a>
+        </div>
         <a href="#" className="tab">
           <svg
             width={104}

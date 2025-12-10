@@ -1,4 +1,11 @@
-import React from "react";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  type SelectChangeEvent,
+} from "@mui/material";
+import { color } from "@mui/system";
 
 interface SelectProps {
   label: string;
@@ -6,8 +13,9 @@ interface SelectProps {
   required: boolean;
   value: string;
   options?: string[];
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange: (e: SelectChangeEvent) => void;
 }
+
 export default function SelectField({
   label,
   name,
@@ -16,10 +24,33 @@ export default function SelectField({
   options = [],
   onChange,
 }: SelectProps) {
-
   return (
     <div className="form-field">
-      <label htmlFor={name}>{label}</label>
+      <FormControl fullWidth>
+        <InputLabel id={label}>{label+"*"}</InputLabel>
+        <Select
+          labelId={label}
+          label={label}
+          id={name}
+          name={name}
+          required={required}
+          value={value}
+          onChange = {onChange}
+          sx={{backgroundColor:"white"}}
+        >
+          {options.map((option) => (
+            <MenuItem key={option} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
+  );
+}
+
+
+{/* <label htmlFor={name}>{label}</label>
       <select
         id={name}
         name={name}
@@ -33,8 +64,4 @@ export default function SelectField({
             {option}
           </option>
         ))}
-      </select>
-    </div>
-  );
-}
-
+      </select> */}

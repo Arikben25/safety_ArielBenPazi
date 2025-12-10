@@ -1,3 +1,5 @@
+import type { SelectChangeEvent } from "@mui/material";
+
 export interface Field {
   activeType: string;
   category: string;
@@ -44,6 +46,7 @@ export interface InputsProps {
       | React.ChangeEvent<HTMLSelectElement>
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
+      |SelectChangeEvent
   ) => void;
   value: Field;
 }

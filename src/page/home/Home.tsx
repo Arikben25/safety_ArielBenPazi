@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import "./home.css";
 import OtherInputs from "../../comps/inputComps/OtherInputs";
 import SelectFrom from "../../comps/inputComps/selects/SelectFrom";
+import ButtonUsage from "../../comps/Button"
 import type { Field } from "../../types";
 import { defaultForm } from "../../types";
+import type { SelectChangeEvent } from "@mui/material";
 
 export default function Home() {
   const [history, setHistory] = useState<Field[]>(() => {
@@ -14,12 +16,12 @@ export default function Home() {
   const [data, setData] = useState<Field>(defaultForm);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<any>) => {
+  const handleChange = (e: React.ChangeEvent<any>|SelectChangeEvent) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent|SelectChangeEvent) => {
     e.preventDefault();
     setHistory([...history, data]);
     setData(defaultForm);
@@ -46,9 +48,7 @@ export default function Home() {
               <SelectFrom handleChange={handleChange} value={data} />
             </div>
           </div>
-          <button type="submit" className="submit-btn">
-            שליחה
-          </button>
+          <ButtonUsage str="שליחה" type="submit" ></ButtonUsage>
           {toastMessage && <p className="toast-notification">{toastMessage}</p>}
         </div>
       </form>

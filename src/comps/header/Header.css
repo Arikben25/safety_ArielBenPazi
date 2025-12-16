@@ -1,0 +1,192 @@
+/* .heder {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  background-color: #ffffff;
+  top: 0px;
+  color: white;
+}
+
+h1 {
+  font-size: 4vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  width: 7vw;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.zyLogo {
+  width: 3vw;
+  right: 6vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navigation-card {
+  font-size: 4vw;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.evensButtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  background-image: linear-gradient(to top, #d8d9db 0%, #fff 80%, #fdfdfd 100%);
+  border-radius: 30px;
+  border: 1px solid #8f9092;
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #606060;
+  text-shadow: 0 1px #fff;
+  position: relative;
+ right: 50%;
+ top: 50%;
+  transform: translateX(50%) translateY(-50%);
+}
+
+.evensButtn:hover {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 3px 3px #cecfd1;
+}
+
+.evensButtn:active {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+
+.evensButtn:focus {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+} */
+
+.heder {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  background-color: var(--color-bg-header-footer); /* שימוש במשתנה */
+  top: 0px;
+  color: var(--color-text-main); /* שימוש במשתנה עבור טקסט כללי */
+  z-index: 1000; /* ודא שהכותרת תמיד מעל התוכן */
+}
+
+h1 {
+  font-size: 4vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  width: 7vw;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.zyLogo {
+  width: 3vw;
+  right: 2vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navigation-card {
+  font-size: 4vw;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* סגנון כפתור 'הצגת אירועים' (evensButtn) */
+.evensButtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  /* שימוש בגראדיאנט עדין עם משתני CSS */
+  background-image: linear-gradient(to top, var(--color-border) 0%, var(--color-bg-header-footer) 80%, var(--color-bg-header-footer) 100%);
+  border-radius: 30px;
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary); /* שימוש במשתנה */
+  text-shadow: 0 1px var(--color-bg-header-footer); /* שימוש במשתנה */
+  position: relative;
+ right: 50%;
+ top: 50%;
+  transform: translateX(50%) translateY(-50%);
+}
+
+/* דריסת צבעים ל-Dark Mode עבור הכפתור */
+.dark-mode .evensButtn {
+    background-image: linear-gradient(to top, #2e2e2e 0%, #1e1e1e 80%, #1e1e1e 100%); 
+    border: 1px solid var(--color-border);
+    color: var(--color-text-main);
+    text-shadow: none;
+}
+
+
+/* דריסת אפקטי Hover ו-Active */
+.evensButtn:hover {
+  /* שימוש בצללים בהירים יותר עבור Light Mode */
+  box-shadow: 0 4px 3px 1px var(--color-bg-header-footer), 0 6px 8px var(--color-border), 0 -4px 4px var(--color-border),
+    0 -6px 4px var(--color-bg-header-footer), inset 0 0 3px 3px var(--color-border);
+}
+
+.dark-mode .evensButtn:hover {
+    /* שימוש בצללים כהים עבור Dark Mode */
+    box-shadow: 0 4px 3px 1px #121212, 0 6px 8px #2d2d2d, 0 -4px 4px #2d2d2d,
+    0 -6px 4px #121212, inset 0 0 3px 3px #2d2d2d;
+}
+
+.evensButtn:active,
+.evensButtn:focus {
+  /* דוגמה: שינוי קל ל-inset shadow */
+  box-shadow: 0 4px 3px 1px var(--color-bg-header-footer), 0 6px 8px var(--color-border), 0 -4px 4px var(--color-border),
+    0 -6px 4px var(--color-bg-header-footer), inset 0 0 5px 3px var(--color-text-secondary), inset 0 0 30px var(--color-border);
+}
+
+/* סגנון כפתור ה-Toggle החדש (בשלב 2.2) */
+.theme-toggle-btn {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-input);
+    color: var(--color-text-main);
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s, border-color 0.2s;
+    z-index: 1001;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--color-border);
+}

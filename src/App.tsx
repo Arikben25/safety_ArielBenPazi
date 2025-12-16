@@ -1,21 +1,23 @@
-import "./App.css";
+import "./App.css"; 
 import { Routes, Route } from "react-router-dom";
-import Heder from "./comps/heder/Heder";
-import Footer from "./comps/footer/Footer";
+import Header from "./comps/header/Header";
 import Home from "./page/home/Home";
-import DataTable from "./page/dataTable/DataTable";
+import TablePage from "./page/dataTable/TablePage";
+import { useAppTheme } from "./themeContext/ThemeContext";
 
 function App() {
+  const { mode } = useAppTheme(); 
+
   return (
-    <>
-      <Heder />
+    <div className={`app-container ${mode === 'dark' ? 'dark-mode' : ''}`}> 
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/DataTable" element={<DataTable />} />
+        <Route path="/dataTable" element={<TablePage />} />
       </Routes>
-      <Footer />
-    </>
+    </div>
   );
 }
 
 export default App;
+

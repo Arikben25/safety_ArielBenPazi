@@ -1,63 +1,54 @@
-interface Field {
-  value: {
-    activeType: string;
-    category: string;
-    unitActivityType: string;
-    weather: string;
-    location: string;
-    results: string;
-    eventSeverity: string;
-    injuriesLevel: string;
-    date: string;
-    subUnit: string;
-    description: string;
-    initialRecommendations: string;
-  };
-  handleChange: (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ) => void;
-}
+import { localTimeInput, maxDate, type InputsProps } from "../../types";
 
-export default function OtherInputs({ value, handleChange }: Field) {
+export default function OtherInputs({ handleChange, value }: InputsProps) {
   return (
     <div className="form-field">
-      <label htmlFor="date">תאריך:</label>
       <input
-        type="datetime-local"
+        type="date"
         name="date"
         id="date"
-        max={new Date().toISOString().slice(0, 16)}
-        onChange={handleChange}
+        required
+        max={maxDate}
         value={value.date}
+        onChange={handleChange}
       />
 
-      <label htmlFor="name">יחידה:</label>
+      <input
+        id="time"
+        type="time"
+        name="eventTime"
+        required
+        max={value.date == maxDate ? localTimeInput : "23:59"}
+        value={value.eventTime}
+        onChange={handleChange}
+      />
+
       <input
         type="text"
         id="name"
         name="subUnit"
+        required
         placeholder="מחלקת דיגיטל"
         onChange={handleChange}
         value={value.subUnit}
       />
 
-      <label htmlFor="description">תיאור מקרה:</label>
       <br />
       <textarea
         id="description"
         name="description"
+        required
+        placeholder="תיאור מקרה (עד 800 תווים)*"
         maxLength={800}
         value={value.description}
         onChange={handleChange}
       ></textarea>
 
-      <label htmlFor="initialRecommendations">המלצות ראשוניות:</label>
       <br />
       <textarea
         id="initialRecommendations"
         name="initialRecommendations"
+        placeholder="המלצות ראשוניות  (עד 800 תווים)"
         maxLength={800}
         value={value.initialRecommendations}
         onChange={handleChange}

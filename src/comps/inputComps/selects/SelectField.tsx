@@ -5,7 +5,6 @@ import {
   Select,
   type SelectChangeEvent,
 } from "@mui/material";
-import { color } from "@mui/system";
 
 interface SelectProps {
   label: string;
@@ -27,7 +26,7 @@ export default function SelectField({
   return (
     <div className="form-field">
       <FormControl fullWidth>
-        <InputLabel id={label}>{label+"*"}</InputLabel>
+        <InputLabel id={label}>{label + "*"}</InputLabel>
         <Select
           labelId={label}
           label={label}
@@ -35,8 +34,23 @@ export default function SelectField({
           name={name}
           required={required}
           value={value}
-          onChange = {onChange}
-          sx={{backgroundColor:"white"}}
+          onChange={onChange}
+          sx={{
+            backgroundColor: "var(--color-bg-input)",
+            color: "var(--color-text-main)",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "var(--color-border)",
+            },
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+              borderColor: "var(--color-primary)",
+            },
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "var(--color-primary)",
+            },
+            "& .MuiSelect-select": {
+              color: "var(--color-text-main)",
+            },
+          }}
         >
           {options.map((option) => (
             <MenuItem key={option} value={option}>
@@ -48,20 +62,3 @@ export default function SelectField({
     </div>
   );
 }
-
-
-{/* <label htmlFor={name}>{label}</label>
-      <select
-        id={name}
-        name={name}
-        required={required}
-        value={value}
-        onChange={onChange}
-      >
-        <option value="">בחר/י</option>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select> */}

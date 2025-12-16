@@ -9,13 +9,25 @@ export default function MySearch({onSearchChange}:{onSearchChange:( e:React.Chan
       type="search"
       onChange={onSearchChange}
       sx={{
+        marginBottom: '20px', 
+        "& .MuiInputLabel-root": {
+            color: "var(--color-text-secondary)",
+        },
         "& .MuiInputLabel-root.Mui-focused": {
-          color: "grey.800",
+            color: "var(--color-primary)",
         },
         "& .MuiOutlinedInput-root": {
-          "&.Mui-focused fieldset": {
-            borderColor: "grey.800",
-          },
+            backgroundColor: "var(--color-bg-input)",
+            color: "var(--color-text-main)",
+            '& fieldset': {
+                borderColor: 'var(--color-border)',
+            },
+            "&:hover fieldset": {
+                borderColor: 'var(--color-primary)',
+            },
+            "&.Mui-focused fieldset": {
+                borderColor: "var(--color-primary)",
+            },
         },
       }}
     />

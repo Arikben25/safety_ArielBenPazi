@@ -15,7 +15,7 @@ export default function DataTable({dataToShow}:{dataToShow:Field[]}) {
   
   const createTitles = () => {
     return tableHeaders.map((val) => (
-      <TableCell className="card__title" key={val.name}>
+      <TableCell className="table-header-cell" key={val.name}>
         {val.title}
       </TableCell>
     ));
@@ -24,11 +24,12 @@ export default function DataTable({dataToShow}:{dataToShow:Field[]}) {
   const createRows = () => {
     return dataToShow.map((row, rowIndex) => (
       <TableRow
+      className="table-data-row"
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
         key={rowIndex}
       >
         {tableHeaders.map((col) => (
-          <TableCell key={`${rowIndex}-${col.name}`}>
+          <TableCell className="table-data-cell" key={`${rowIndex}-${col.name}`}>
             {row[col.name] || "-"}
           </TableCell>
         ))}
@@ -38,7 +39,7 @@ export default function DataTable({dataToShow}:{dataToShow:Field[]}) {
 
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} className="app-data-table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>{createTitles()}</TableRow>

@@ -1,66 +1,93 @@
-.dataTable {
-    margin-top: 100px;
-    border: 1px solid #1f1313 ;  
+.table-page-container {
+    padding-top: 100px; 
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.dataTable td , .dataTable th {
-    border: 1px solid #1f1313 ;  
-    padding: 8px;  
+.data-controller-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
 }
 
-.dataTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-family: Arial, sans-serif;
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  margin-top: 100px;
+/* מיקום שדה החיפוש (נוסף עכשיו) */
+.search-bar-wrapper {
+    display: flex;
+    justify-content: flex-end; /* יישור לקצה (שמאל ויזואלית ב-RTL) */
+    width: 100%;
 }
 
-.dataTable thead {
-  background: #f4f6f8;
-}
-
-.dataTable th {
-  padding: 12px;
-  font-weight: 600;
-  text-align: left;
-  font-size: 14px;
-  color: #374151;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.dataTable tbody tr {
-  transition: background 0.2s ease;
-}
-
-.dataTable tbody tr:nth-child(even) {
-  background: #fafafa;
-}
-
-.dataTable tbody tr:hover {
-  background: #eef2ff;
-}
-
-.dataTable td {
-  padding: 12px;
-  font-size: 14px;
-  color: #4b5563;
-  border-bottom: 1px solid #e5e7eb;
-  max-width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.card__title {
-  padding: 12px;
+/* הגבלת רוחב שדה החיפוש */
+.search-bar-wrapper .MuiTextField-root {
+    width: 300px; 
 }
 
 
-.TableMUI {
-    margin-top: 100px;
+/* עיצוב הטבלה */
+
+.app-data-table {
+    margin-top: 0; 
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
 }
+
+/* דריסת צבע הרקע של רכיב Paper הפנימי של MUI */
+.app-data-table .MuiPaper-root {
+    background-color: var(--color-bg-card); 
+}
+
+/* כיוון ל-Table Head */
+.app-data-table .MuiTableHead-root {
+    background: var(--color-bg-input); 
+}
+
+/* כיוון לכותרות עמודות (<th>) ל-RTL */
+.app-data-table .MuiTableCell-head {
+    padding: 12px;
+    font-weight: 600;
+    text-align: right; 
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* שורות הטבלה (<tr>) */
+.table-data-row {
+    transition: background 0.2s ease;
+}
+
+/* שורות מתחלפות (even/odd) */
+.app-data-table .MuiTableBody-root .MuiTableRow-root:nth-child(even) {
+    background: var(--color-bg-main); 
+}
+
+.app-data-table .MuiTableBody-root .MuiTableRow-root:nth-child(odd) {
+    background: var(--color-bg-card); 
+}
+
+/* אפקט Hover */
+.app-data-table .MuiTableBody-root .MuiTableRow-root:hover {
+    background: var(--color-border); 
+}
+
+/* תאי תוכן (<td>) ל-RTL */
+.app-data-table .MuiTableCell-body {
+    padding: 12px;
+    font-size: 14px;
+    color: var(--color-text-main);
+    border-bottom: 1px solid var(--color-border);
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right; 
+}
+
+/* סגנון כותרת 'אין נתונים' */
+.noDataRow {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--color-text-secondary);
+} 

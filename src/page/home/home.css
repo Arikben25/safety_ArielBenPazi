@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --primary-color: #8aa0ff;
   --primary-bg: #f0f3ff;
   --border-color: #d4d8e8;
@@ -104,6 +104,144 @@
     right: 20px;
     background-color: #d7d7d7; 
     color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+} */
+
+/* הגדרות ברירת מחדל (Light Mode) */
+/* src/page/home/home.css - קוד מעודכן למצב כהה */
+
+/* משתני Light Mode (ברירת מחדל) */
+/* src/page/home/home.css - קוד מעודכן */
+
+/* משתני Light Mode (ברירת מחדל) */
+:root {
+  --color-primary: #cdcccc; /* **שונה:** צבע ראשי (כפתור) זהה לרקע האתר */
+  --color-primary-hover: #c1bfbf; /* אפור בהיר מאוד ל-Hover */
+  --color-bg-main: #f5f5f5; /* רקע ראשי של הדף (אפור בהיר מאוד) */
+  --color-bg-card: #ffffff; /* רקע של הקארד/טופס (לבן) */
+  --color-border: #cccccc; /* צבע גבולות (אפור בינוני) */
+  --color-text-main: #333333; /* צבע טקסט ראשי (שחור כהה) */
+  --color-text-secondary: #606060; /* צבע טקסט משני/כפתורים (אפור כהה) */
+  --color-bg-input: #ffffff; /* רקע שדה קלט */
+  --color-bg-header-footer: #ffffff; /* רקע כותרת תחתונה ועליונה */
+  --font-family-assistant: "Assistant", sans-serif; 
+}
+
+/* דריסת צבעים למצב כהה (אפור כהה) */
+.dark-mode {
+  --color-primary: #a8a8a8; /* אפור בינוני בהיר (כפתור/פוקוס) */
+  --color-primary-hover: #b8b8b8; /* אפור בהיר יותר ל-Hover */
+  --color-bg-main: #1e1e1e; /* רקע ראשי (אפור כמעט שחור) */
+  --color-bg-card: #2d2d2d; /* רקע של הקארד/טופס (אפור כהה) */
+  --color-border: #444444; /* צבע גבולות (אפור כהה בינוני) */
+  --color-text-main: #f5f5f5; /* צבע טקסט ראשי (לבן-אפור) */
+  --color-text-secondary: #bdbdbd; /* צבע טקסט משני (אפור בהיר) */
+  --color-bg-input: #3a3a3a; /* רקע שדה קלט */
+  --color-bg-header-footer: #2d2d2d; /* רקע כותרת תחתונה ועליונה */
+}
+
+/* יישום המשתנים (הקוד נשאר כפי שהיה, משתמש במשתנים החדשים) */
+.home {
+  display: flex;
+  padding: 20px;
+  gap: 40px;
+  padding: 20px;
+  justify-content: center;
+  background-color: var(--color-bg-main); 
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-assistant);
+  padding: 30px;
+  margin: 100px auto;
+  width: 40vw;
+  min-width: 400px;
+  border-radius: 2rem;
+  background-color: var(--color-bg-card); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card-content-columns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card-content-columns div {
+  gap: 19px;
+  flex: 1;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  font-weight: 600;
+  margin-bottom: 8px; 
+  color: var(--color-text-main); 
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 12px; 
+  border: 1px solid var(--color-border); 
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: var(--font-family-assistant);
+  background: var(--color-bg-input); 
+  color: var(--color-text-main); 
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.form-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary); 
+  box-shadow: 0 0 0 3px rgba(129, 152, 255, 0.25); 
+}
+
+/* הוסר רוב הסטיילינג של .submit-btn כדי שהכפתור יקבל אותו מה-MUI (שמטופל עכשיו בקובץ Button.tsx) */
+.submit-btn {
+  /* נשמרים רק כללי ה-Layout שאינם צבע */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-bottom: 50px;
+}
+
+.toast-notification {
+    bottom: 20px; 
+    right: 20px;
+    background-color: var(--color-bg-card); 
+    color: var(--color-text-main);
     padding: 15px 25px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);

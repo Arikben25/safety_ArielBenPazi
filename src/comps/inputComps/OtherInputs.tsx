@@ -1,11 +1,8 @@
-import { TextField } from "@mui/material";
 import { localTimeInput, maxDate, type InputsProps } from "../../types";
-import { Box } from "@mui/system";
 
 export default function OtherInputs({ handleChange, value }: InputsProps) {
   return (
     <div className="form-field">
-      {/* <label htmlFor="date">תאריך:</label> */}
       <input
         type="date"
         name="date"
@@ -16,7 +13,6 @@ export default function OtherInputs({ handleChange, value }: InputsProps) {
         onChange={handleChange}
       />
 
-      {/* <label htmlFor="time">שעה :</label> */}
       <input
         id="time"
         type="time"
@@ -27,7 +23,6 @@ export default function OtherInputs({ handleChange, value }: InputsProps) {
         onChange={handleChange}
       />
 
-      {/* <label htmlFor="name">יחידה:</label> */}
       <input
         type="text"
         id="name"

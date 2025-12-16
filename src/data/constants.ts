@@ -60,7 +60,6 @@ export const locationArr = ["בסיס", "שטח אזרחי", "שטח אש", "ר�
 
 export const eventSeverityArr = ["קל", "בינוני", "חמור"];
 
-
 export const resultsArr = [
   "אין נפגעים אין נזק",
   "אין נפגעים יש נזק",
@@ -191,3 +190,6 @@ export const tableHeaders = [
   { title: "יום האירוע", name: "date" },
   { title: "שעת האירוע", name: "eventTime" },
 ] as const;
+
+const saved = localStorage.getItem("formHistory");
+export const dataForTable = saved ? (JSON.parse(saved) as Field[]) : [];

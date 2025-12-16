@@ -1,3 +1,5 @@
+import type { SelectChangeEvent } from "@mui/material";
+
 export interface Field {
   activeType: string;
   category: string;
@@ -21,7 +23,7 @@ const now = new Date();
     now.getMinutes().toString().padStart(2, "0");
  export const maxDate = now.toISOString().split("T")[0];
 
-
+ 
 export const defaultForm: Field = {
   subUnit: "",
   description: "",
@@ -44,6 +46,7 @@ export interface InputsProps {
       | React.ChangeEvent<HTMLSelectElement>
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
+      |SelectChangeEvent
   ) => void;
   value: Field;
 }

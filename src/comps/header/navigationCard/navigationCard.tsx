@@ -1,29 +1,24 @@
 import "./navigation.style.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Card = () => {
-  const navigate = useNavigate();
-  const homeButtn = () => {
-    navigate("/");
-  };
+  
   return (
     <div>
       <div className="navigation-card ">
-        <a href="#" className="tab">
+        <Link to="/" className="tab"> 
           <svg
-            onClick={homeButtn}
-            className="svgIcon"
             viewBox="0 0 104 100"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M100.5 40.75V96.5H66V68.5V65H62.5H43H39.5V68.5V96.5H3.5V40.75L52 4.375L100.5 40.75Z"
-              stroke="black"
+              stroke="currentColor" 
               strokeWidth={7}
             />
           </svg>
-        </a>
+        </Link>
         <a href="#" className="tab">
           <svg
             width={104}
@@ -38,7 +33,7 @@ const Card = () => {
               width={60}
               height={60}
               rx={30}
-              stroke="black"
+              stroke="currentColor" 
               strokeWidth={7}
             />
             <g clipPath="url(#clip0_41_27)">
@@ -59,7 +54,7 @@ const Card = () => {
               <g mask="url(#mask0_41_27)">
                 <path
                   d="M-7 113C-7 80.4152 19.4152 54 52 54H52.2512C84.6973 54 111 80.3027 111 112.749H97C97 88.0347 76.9653 68 52.2512 68H52C27.1472 68 7 88.1472 7 113H-7ZM-7 113C-7 80.4152 19.4152 54 52 54V68C27.1472 68 7 88.1472 7 113H-7ZM52.2512 54C84.6973 54 111 80.3027 111 112.749V113H97V112.749C97 88.0347 76.9653 68 52.2512 68V54Z"
-                  fill="black"
+                  fill="currentColor" 
                 />
               </g>
             </g>
@@ -88,7 +83,7 @@ const Card = () => {
               cy="46.1727"
               r="29.5497"
               transform="rotate(36.0692 46.1726 46.1727)"
-              stroke="black"
+              stroke="currentColor"
               strokeWidth={7}
             />
             <line
@@ -96,7 +91,7 @@ const Card = () => {
               y1="67.7837"
               x2="97.7088"
               y2="111.784"
-              stroke="black"
+              stroke="currentColor"
               strokeWidth={7}
             />
           </svg>
